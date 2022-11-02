@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "cross-framework-define-component": "workspace:^0.0.1",
+    "cross-framework-define-component": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
