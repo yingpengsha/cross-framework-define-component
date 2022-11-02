@@ -1,5 +1,5 @@
 {
-  "name": "ts-lib-template",
+  "name": "cross-framework-define-component",
   "version": "0.0.1",
   "license": "MIT",
   "author": "Pengsha Ying <yingfusheng@foxmail.com>",
@@ -48,5 +48,12 @@
     "tsup": "^5.2.1",
     "typescript": "^4.4.3",
     "vitest": "^0.1.13"
+  },
+  "dependencies": {
+    "@types/react": "^18.0.23",
+    "@vue/reactivity": "^3.2.41",
+    "@vue/runtime-core": "^3.2.41",
+    "@vue/shared": "^3.2.41",
+    "react": "^18.2.0"
   }
 }

@@ -1,1 +1,2 @@
-export default () => console.log('Welcome to use this template!')
+export * from '@vue/runtime-core'
+export { default as ReactDefineComponent } from './react/defineComponent'
