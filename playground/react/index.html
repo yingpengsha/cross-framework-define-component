@@ -7,6 +7,46 @@
     <title>Vite + React + TS</title>
   </head>
   <body>
+<h1>
+  <a href="https://github.com/yingpengsha/cross-framework-define-component">cross-framework-define-component</a>
+</h1>
+<h2>App </h2>
+<pre>
+import { ReactDefineComponent, ref } from &#x27;cross-framework-define-component&#x27;
+import Button from &#x27;./Button&#x27;
+
+export default ReactDefineComponent(() =&gt; {
+  const loading = ref(false)
+  const onClick = () =&gt; {
+    loading.value = true
+    setTimeout(() =&gt; {
+      loading.value = false
+    }, 3000)
+  }
+
+  return () =&gt;
+    &lt;Button loading={loading.value} onClick={onClick} /&gt;
+})
+</pre>
+<h2>Button</h2>
+<pre>
+import { ReactDefineComponent } from &#x27;cross-framework-define-component&#x27;
+
+export default ReactDefineComponent&lt;{loading?: boolean, onClick?: React.MouseEventHandler&lt;HTMLButtonElement&gt;}&gt;((props) =&gt; {
+  return () =&gt; {
+    const { loading = false, onClick = () =&gt; {} } = props
+    return &lt;button
+      disabled={loading}
+      onClick={onClick}
+    &gt;
+      i&#x27;m {loading ? &#x27;loading&#x27; : &#x27;button&#x27;}
+    &lt;/button&gt;
+  }
+})
+</pre>
+<h2>
+Reproduction
+</h2>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
