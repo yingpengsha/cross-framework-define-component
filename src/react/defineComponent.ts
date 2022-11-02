@@ -13,6 +13,7 @@ import {
   ReactiveEffect,
   resetTracking
 } from '@vue/reactivity'
+import { nextTick } from '@vue/runtime-core'
 
 type RenderFunction = () => ReactElement;
 
@@ -49,7 +50,7 @@ export default function defineComponent<Props = {}> (
           subtree.current = render.current?.() || createElement(Fragment)
           rerender()
         },
-        () => Promise.resolve(effect.current.run()),
+        () => nextTick(effect.current.run()),
         scope.current
       )
     )
