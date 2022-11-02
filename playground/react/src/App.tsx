@@ -1,7 +1,15 @@
 import { ReactDefineComponent, ref } from 'cross-framework-define-component'
+import Button from './Button'
 
 export default ReactDefineComponent(() => {
-  const tick = ref(0)
-  setInterval(() => { tick.value += 1 }, 1000)
-  return () => <button>{tick.value}</button>
+  const loading = ref(false)
+  const onClick = () => {
+    loading.value = true
+    setTimeout(() => {
+      loading.value = false
+    }, 3000)
+  }
+
+  return () =>
+    <Button loading={loading.value} onClick={onClick} />
 })
