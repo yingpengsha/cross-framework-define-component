@@ -27,7 +27,7 @@ export default function defineComponent<Props extends object = {}> (
     const once = useRef(true)
     // effectScope
     const scope = useRef(effectScope(true))
-    // render
+    // render function
     const render = useRef<RenderFunction>()
     // subtree
     const subtree = useRef<ReactElement>(createElement(Fragment))
@@ -72,12 +72,7 @@ export default function defineComponent<Props extends object = {}> (
       once.current = false
     }
 
-    useEffect(() => {
-      return () => {
-        scope.current.stop();
-        (effect.current as ReactiveEffect).stop()
-      }
-    }, [])
+    useEffect(() => scope.current.stop, [])
 
     return subtree.current
   })
